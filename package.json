@@ -2,9 +2,14 @@
   "name": "solid-suitcss",
   "version": "0.1.0",
   "description": "A Solid component utility to generate CSS class names that confirm to SUIT CSS naming conventions.",
-  "main": "dist/index.js",
+  "keywords": ["solid-js", "solid", "suitcss", "suit-css"],
+  "author": "Domes-tos",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsdx build --entry index.ts"
+    "build": "tsdx build --entry index.ts",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "prepare" : "npm run build"
   },
   "license": "MIT",
   "devDependencies": {
