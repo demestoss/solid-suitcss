@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "A Solid-js component utility to generate CSS class names that confirm to SUIT CSS naming conventions.",
   "keywords": ["solid-js", "solid", "suitcss", "suit", "css"],
-  "author": "Domes-tos",
+  "author": "Popov Dmitriy",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -13,9 +13,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Domes-tos/solid-suitcss.git"
+    "url": "https://github.com/popovdmitriiy/solid-suitcss.git"
   },
-  "homepage": "https://github.com/Domes-tos/solid-suitcss",
+  "homepage": "https://github.com/popovdmitriiy/solid-suitcss",
   "license": "MIT",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.30.0",
