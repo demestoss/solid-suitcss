@@ -5,7 +5,7 @@ A Solid-js component utility to generate CSS class names that confirm to [SUIT C
 This utility can be used as a utility function inside solid-js components. Generally it provides high order function `createClassName`, it returns function `getClassName`, which is used to generate component classNames.
 
 ```JavaScript
-createClassName({
+const getClassName = createClassName({
   componentName: string,
   namespace: string 
 })
