@@ -3,6 +3,7 @@
 A Solid-js component utility to generate CSS class names that confirm to [SUIT CSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
 
 This utility can be used as a utility function inside solid-js components. Generally it provides high order function `createClassName`, it returns function `getClassName`, which is used to generate component classNames.
+It also provides high order component `SuitCssConnect`, which can automatically determine component name using `Component.name` attribute.
 
 ```JavaScript
 const getClassName = createClassName(
@@ -32,6 +33,8 @@ All parameters are optional.
 
 ```
 npm install solid-suitcss
+# or
+yarn add solid-suitcss
 ```
 
 ## Usage
@@ -101,7 +104,35 @@ render(
   ),
   document.getElementById("app")
 );
+```
 
+### High order component functionality
+```JavaScript
+// App.ts
+import { render } from "solid-js/web";
+import { SuitCssConnect, SuitCssProps } from "solid-suitcss";
+
+const App: Component<SuitCssProps> = (p) => {
+  return (
+    <section class={p.getClassName()}>
+      <header class={p.getClassName({ descendantName: "header" })}>
+        Header
+      </header>
+    </section>
+  );
+};
+
+export default SuitCssConnect(App)
+
+// index.ts
+import App from './App';
+
+render(
+  () => (
+    <App />
+  ),
+  document.getElementById("app")
+);
 ```
 
 ## Examples
@@ -140,5 +171,7 @@ npm run build
 
 ## Release History
 
+* 0.3.0 - Added new high order component.
+* 0.2.0 - Fixed functionality, dependencies cleanup
 * 0.1.1 - Added description
 * 0.1.0 - Initial release

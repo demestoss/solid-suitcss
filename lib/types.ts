@@ -14,3 +14,4 @@ export type GetClassNameOptions = {
 
 export declare type GetClassNameFunc = (options?: GetClassNameOptions) => string;
 
+export declare type SuitCssProps = { getClassName: GetClassNameFunc };
