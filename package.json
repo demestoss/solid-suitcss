@@ -1,6 +1,6 @@
 {
   "name": "solid-suitcss",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A Solid-js component utility to generate CSS class names that confirm to SUIT CSS naming conventions.",
   "keywords": [
     "solid-js",
