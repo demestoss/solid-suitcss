@@ -4,31 +4,30 @@ A Solid-js component utility to generate CSS class names that confirm to [SUIT C
 
 This utility can be used as a utility function inside solid-js components. Generally it provides high order function `createClassName`, it returns function `getClassName`, which is used to generate component classNames.
 
-It also provides high order component `SuitCssConnect`, which can automatically determine component name.
-
-```JavaScript
-const getClassName = createClassName(
-  componentName: string,
-  namespace: string,
-)
-```
+It also provides high order component `withSuitCss`, which can automatically determine component name.
 
 * __componentName__ - the component's name, must be in pascal case.
 * __namespace__ - optional, can be used to declare component's namespace
 
+
 ```JavaScript
-getClassName({
-  namespace: string,
+const getClassName = createClassName(
   componentName: string,
-  descendantName: string,
-  modifiers: string | Array<string>,
-  states: string | Array<string>,
-  utilities: string | Array<string>,
-  className: string,
-})
+  namespace?: string,
+)
 ```
 
-All parameters are optional.
+```JavaScript
+getClassName({
+  descendantName?: string,
+  modifiers?: string | Array<string>,
+  states?: string | Array<string>,
+  utilities?: string | Array<string>,
+  className?: string,
+  namespace?: string,
+  componentName?: string,
+})
+```
 
 ## Installation
 
@@ -109,14 +108,19 @@ render(
 
 ### High order component functionality
 
+HOC will pass `getClassName` prop inside your component
+
 Automatically determine component name using `Component.name` attribute.
 
-```JavaScript
-// App.ts
-import { render } from "solid-js/web";
-import { SuitCssConnect, SuitCssProps } from "solid-suitcss";
+You can pass `namespace` as the second argument of the HOC
 
-const App: Component<SuitCssProps> = (p) => {
+```JavaScript
+import { render } from "solid-js/web";
+import { withSuitCss, SuitCssProps } from "solid-suitcss";
+
+interface AppProps extends SuitCssProps {}
+
+const App: Component<AppProps> = (p) => {
   return (
     <section class={p.getClassName()}>
       <header class={p.getClassName({ descendantName: "header" })}>
@@ -126,15 +130,11 @@ const App: Component<SuitCssProps> = (p) => {
   );
 };
 
-export default SuitCssConnect(App)
-```
-```JavaScript
-// index.ts
-import App from './App';
+const AppWithSuitCss = withSuitCss(App)
 
 render(
   () => (
-    <App />
+    <AppWithSuitCss />
   ),
   document.getElementById("app")
 );
@@ -176,8 +176,9 @@ npm run build
 
 ## Release History
 
+* 1.0.0 - Changed HOC name to `withSuitCss`. Improved typing. Fixed README and code optimization
 * 0.3.1 - Added jest config and tests for createClassName function
-* 0.3.0 - Added new high order component.
+* 0.3.0 - Added new high order component
 * 0.2.0 - Fixed functionality, dependencies cleanup
 * 0.1.1 - Added description
 * 0.1.0 - Initial release

@@ -1,7 +1,8 @@
 {
   "name": "solid-suitcss",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "description": "A Solid-js component utility to generate CSS class names that confirm to SUIT CSS naming conventions.",
+  "packageManager": "yarn",
   "keywords": [
     "solid-js",
     "solid",
@@ -18,7 +19,8 @@
   "scripts": {
     "build": "rollup -c",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -38,7 +40,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-prettier": "^3.4.1",
-    "jest": "^27.1.0",
+    "jest": "^28.1.0",
     "prettier": "^2.3.2",
     "rollup": "^2.56.3",
     "rollup-plugin-babel": "^4.4.0",
@@ -47,14 +49,14 @@
     "rollup-plugin-dts": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-typescript2": "^0.30.0",
-    "solid-js": "^1.0.0",
-    "ts-jest": "^27.0.5",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "solid-js": "^1.4.0",
+    "ts-jest": "^28.0.2",
     "tslib": "^2.3.1",
-    "typescript": "^4.4.2"
+    "typescript": "4.6.4"
   },
   "peerDependencies": {
-    "solid-js": "^1.0.0"
+    "solid-js": "^1.4.0"
   },
   "jest": {
     "preset": "ts-jest",
@@ -65,5 +67,8 @@
     "transformIgnorePatterns": [
       "node_modules/(?!variables/.*)"
     ]
-  }
+  },
+  "files": [
+    "dist/**/*"
+  ]
 }
