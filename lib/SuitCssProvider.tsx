@@ -1,10 +1,10 @@
 import { SuitCssContext } from "./SuitCssContext";
-import type { Component } from "solid-js";
+import type { ParentComponent } from "solid-js";
 
-const SuitCssProvider: Component<{ namespace: string }> = (props) => {
+const SuitCssProvider: ParentComponent<{ namespace?: string }> = (props) => {
   return (
     <SuitCssContext.Provider
-      value={{ namespace: props.namespace }}
+      value={{ namespace: props.namespace || '' }}
       children={props.children}
     />
   );
